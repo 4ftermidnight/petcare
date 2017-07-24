@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/LayoutPadrao}"
+	xmlns:brewer="http://brewer.algaworks.com"
+	xmlns:data="http://www.thymeleaf.org/extras/data"
+	xmlns:sec="http://www.thymeleaf.org/extras/thymeleaf-extras-springsecurity4">
+
+<body>
+
+	<aside id="sidebar" class="sidebar c-overflow" th:fragment="menu-sidebar">
+
+		<ul class="main-menu">
+			<li class="sub-menu"><a href="" data-ma-action="submenu-toggle"><i class="zmdi zmdi-developer-board"></i>Administrativo</a>
+				<ul>
+					<li><a th:href="form-elements.html">Dashboard</a></li>
+					<li><a th:href="@{/clientes}">Clientes</a></li>
+					<li><a href="form-elements.html">Agenda</a></li>
+					
+					<li class="sub-menu"><a href="" data-ma-action="submenu-toggle">Relatórios</a>
+						<ul>
+							<li><a href="">Tempo de uso por cliente</a></li>
+							<li><a href="">Faturamento por cliente</a></li>
+							<li><a href="">Ranking dos horários</a></li>
+							<li><a href="">Clientes ausentes</a></li>
+						</ul>
+					</li>
+					
+					<li class="sub-menu"><a href="" data-ma-action="submenu-toggle">Marketing</a>
+						<ul>
+							<li><a href="">Mail marketing</a></li>
+							<li><a href="">Promoções</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+			</li>
+			<li><a th:href="@{/}" class="js-scroll-animate" data-scroll-idtarget="home-section" ><i class="zmdi zmdi-home js-scroll-animate" id="home-sessionlink"></i> Home</a></li>
+			<li><a th:href="@{/}" class="js-scroll-animate" data-scroll-idtarget="ideia-section"><i class="zmdi zmdi-lamp js-scroll-animate" id="ideia-sessionlink"></i> Ideia</a></li>
+			<li><a th:href="@{/}" class="js-scroll-animate" data-scroll-idtarget="localizacao-section"><i class="zmdi zmdi-pin js-scroll-animate"  id="localizacaolink"></i> Localização</a></li>
+			<li><a th:href="@{/}" class="js-scroll-animate" data-scroll-idtarget="precos-section"><i class="zmdi zmdi-card-giftcard js-scroll-animate" id="precos-sectionlink"></i> Preços e Promoções</a></li>
+			<li><a th:href="@{/}" class="js-scroll-animate" data-scroll-idtarget="agenda-section"><i class="zmdi zmdi-calendar-alt js-scroll-animate" id="agenda-sectionlink"></i> Agenda</a></li>
+			<li><a th:href="@{/}" class="js-scroll-animate" data-scroll-idtarget="parceiros-section"><i class="zmdi zmdi-accounts js-scroll-animate" id="parceiros-sectionlink"></i> Parceiros</a></li>
+		</ul>
+	</aside>
+	
+
+</body>
+</html>

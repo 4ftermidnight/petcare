@@ -7,6 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         <title>Vet Kassia</title>
 
         <!-- Vendor CSS -->
@@ -48,11 +49,12 @@
                     
                     <button type="submit" class="btn btn-login btn-success btn-float"><i class="zmdi zmdi-arrow-forward"></i></button>
                 </div>
-
+				<!-- 
                 <div class="lcb-navigation">
                     <a href="" data-ma-action="login-switch" data-ma-block="#l-register"><i class="zmdi zmdi-plus"></i> <span>Register</span></a>
                     <a href="" data-ma-action="login-switch" data-ma-block="#l-forget-password"><i>?</i> <span>Forgot Password</span></a>
-                </div>
+                </div> 
+                -->
             </div>
 
             <!-- Register -->
@@ -82,13 +84,14 @@
                     <a href="" class="btn btn-login btn-success btn-float"><i class="zmdi zmdi-check"></i></a>
                 </div>
 
-<!-- 
-                <div class="lcb-navigation">
+		
+                <div class="lcb-navigation" th:if="false">
                     <a href="" data-ma-action="login-switch" data-ma-block="#l-login"><i class="zmdi zmdi-long-arrow-right"></i> <span>Sign in</span></a>
                     <a href="" data-ma-action="login-switch" data-ma-block="#l-forget-password"><i>?</i> <span>Forgot Password</span></a>
                 </div>
+
             </div>
- -->
+
             <!-- Forgot Password -->
             <div class="lc-block" id="l-forget-password">
                 <div class="lcb-form">
@@ -103,11 +106,12 @@
 
                     <a href="" class="btn btn-login btn-success btn-float"><i class="zmdi zmdi-check"></i></a>
                 </div>
-
+			 
                 <div class="lcb-navigation">
                     <a href="" data-ma-action="login-switch" data-ma-block="#l-login"><i class="zmdi zmdi-long-arrow-right"></i> <span>Sign in</span></a>
                     <a href="" data-ma-action="login-switch" data-ma-block="#l-register"><i class="zmdi zmdi-plus"></i> <span>Register</span></a>
                 </div>
+            
             </div>
         </div>
 

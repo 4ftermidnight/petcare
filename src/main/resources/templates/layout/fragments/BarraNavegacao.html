@@ -2,11 +2,20 @@
 <html lang="pt" 
 	xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.springframework.org/security/tags">
 
 <body>
 
 	<header id="header" class="clearfix" data-ma-theme="blue" th:fragment="header">
+	<p class="navbar-text" th:text="${#authentication == null}"></p>
+	
+<!-- 	<p class="navbar-text" th:text="${#authentication.authenticated}"></p> -->
+
+<!-- 		<div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"> -->
+<!--              Secret Content -->
+<!--         </div> -->
+        
 		<ul class="h-inner">
 			<li class="hi-trigger ma-trigger" data-ma-action="sidebar-open" data-ma-target="#sidebar">
 				<div class="line-wrap">

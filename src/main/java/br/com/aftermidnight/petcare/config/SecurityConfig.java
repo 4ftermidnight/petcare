@@ -13,6 +13,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
+import org.thymeleaf.spring4.SpringTemplateEngine;
+import org.thymeleaf.templateresolver.ITemplateResolver;
 
 import br.com.aftermidnight.petcare.security.AppUserDatailsService;
 
@@ -62,6 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.permitAll()
 				.and()
 			.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//				.logoutSuccessUrl("/login")
 				.and()
 			.exceptionHandling()
 				.accessDeniedPage("/403")
@@ -70,22 +74,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.invalidSessionUrl("/login")
 			
 			;
-		
-		
-//		http.authorizeRequests()
-//			.antMatchers("/").permitAll()
-//			.and().authorizeRequests()
-//			.antMatchers("/h2-console/**").permitAll();
-		
-//		  http.csrf().disable();
-//        http.headers().frameOptions().disable();
-		
+				
 	}
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
 	
 }

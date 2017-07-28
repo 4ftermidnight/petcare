@@ -8,9 +8,6 @@
 <body>
 
 	<header id="header" class="clearfix" data-ma-theme="blue" th:fragment="header">
-	<p class="navbar-text" th:text="${#authentication == null}"></p>
-	
-<!-- 	<p class="navbar-text" th:text="${#authentication.authenticated}"></p> -->
 
 <!-- 		<div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}"> -->
 <!--              Secret Content -->
@@ -25,29 +22,34 @@
 				</div>
 			</li>
 
-			<li class="hi-logo hidden-xs"><a href="index.html">VetKassia</a></li>
+			<li class="hi-logo hidden-xs"><a th:href="@{/}">VetKassia(LOGO)</a></li>
 
 			<li class="pull-right">
 				<ul class="hi-menu">
 
 					<!--Quando usuario não logado -->
-		            <li class="dropdown">
-		                <a data-toggle="modal" href="#modalLogin" id="barraNavegacaoBtnLogin"><i class=" waves-effect him-icon zmdi zmdi-sign-in"></i></a>
-		            </li>
-
+					<th:block th:if="${not #authentication.authenticated}">
+			            <li class="dropdown">
+			                <a data-toggle="modal" href="#modalLogin" id="barraNavegacaoBtnLogin"><i class=" waves-effect him-icon zmdi zmdi-sign-in"></i></a>
+			            </li>
+		            </th:block>
+		            
 					<!--Quando usuario logado -->
-					<li class="dropdown"><a data-toggle="dropdown" href=""><i class="him-icon zmdi zmdi-account-circle"></i></a>
-						<ul class="dropdown-menu dm-icon pull-right">
-							<li class="m-10">
-								<div>
-									<img src="https://avatars.io/facebook/nicolas0liveira/small" alt=""
-										style="border-radius: 50%; border: 3px solid rgba(0, 0, 0, .14);">
-								</div> nome da silva sauro
-
-							</li>
-							<li class="divider hidden-xs"></li>
-							<li><a th:href="@{/logout}"><i class="zmdi zmdi-time-restore"></i> Sair</a></li>
-						</ul></li>
+					<th:block th:if="${#authentication.authenticated}">
+						<li class="dropdown"><a data-toggle="dropdown" href=""><i class="him-icon zmdi zmdi-account-circle"></i></a>
+							<ul class="dropdown-menu dm-icon pull-right">
+								<li class="m-10">
+									<div>
+										<img src="https://avatars.io/facebook/nicolas0liveira/small" alt=""
+											style="border-radius: 50%; border: 3px solid rgba(0, 0, 0, .14);">
+									</div> <p class="" th:text="${#authentication.principal.usuario.nome}"></p>
+	
+								</li>
+								<li class="divider hidden-xs"></li>
+								<li><a th:href="@{/logout}"><i class="zmdi zmdi-time-restore"></i> Sair</a></li>
+							</ul>
+						</li>
+					</th:block>
 
 				</ul>
 			</li>

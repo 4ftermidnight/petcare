@@ -55,17 +55,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		/* Colocar primeiro as restrições: bloqueia primeiro, libera depois. */
 		http
 			.authorizeRequests()
-			//.anyRequest().permitAll()
-		
+				.antMatchers("/cidade/nova").hasAnyRole("CADASTRAR_CIDADE") /*a permissao deve posuir o prefixo ROLE_ no banco...*/
 				.antMatchers("/usuario/**").hasAnyRole("CADASTRAR_USUARIO")
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()
 				.loginPage("/login")
 				.permitAll()
+				.defaultSuccessUrl("/")
 				.and()
 			.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//				.logoutSuccessUrl("/login")
 				.and()
 			.exceptionHandling()
 				.accessDeniedPage("/403")
@@ -73,7 +72,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.sessionManagement()
 				.invalidSessionUrl("/login")
 			
-			;
+;
 				
 	}
 	

@@ -1,7 +1,6 @@
 package br.com.aftermidnight.petcare.controller;
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -9,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class SegurancaController {
 
 	@GetMapping("/login")
-	public String login(@AuthenticationPrincipal User user){ //@AuthenticationPrincipal injeta o usuário logado
-		if (user != null){
-			return "redirect:/dashboard";
+	public String login(Authentication authentication){ //@AuthenticationPrincipal injeta o usuário logado
+		if (authentication != null && authentication.isAuthenticated()){
+			return "redirect:/Home";
 		}
 		return "Login";
 	}

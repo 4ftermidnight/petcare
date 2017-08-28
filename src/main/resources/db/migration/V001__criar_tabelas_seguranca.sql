@@ -66,7 +66,7 @@ CREATE TABLE public.grupo_permissao
       REFERENCES public.permissao (codigo) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT fkh1lvrl72de4u5xhr1u3jvo0rq FOREIGN KEY (codigo_grupo)
       REFERENCES public.grupo (codigo) MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION
-)
+);
 
 INSERT INTO public.usuario(codigo, ativo, data_nascimento, email, nome, senha)
     VALUES (1, TRUE, null, 'admin', 'admin', '$2a$10$tUs8O7dNLFzfB95.xDh00.wSEyt3/smxo2O7ND36UIBVCcosxz33i');
